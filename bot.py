@@ -16,13 +16,18 @@ def getPDF():
 file=getPDF()
 tables=camelot.read_pdf('/tmp/pol.pdf', pages='all', strip_text=' .\n')
 for i in range(len(tables)):
-    date=tables[i].df.loc[4,0]
-    dateList=date.partition('T')
-    time=dateList[1]+dateList[2]
-    print(dateList[0])
-    print("")
-    print(time)
-    print("")
-    print(tables[i].df.loc[10,0])
-    print("")
+    dateTime=tables[i].df.loc[4,0]
+    dateTimeList=dateTime.partition('T')
+    time=dateTimeList[1]+dateTimeList[2]
+    synopsis = tables[i].df.loc[10,0].split(":")[1]
+    print(synopsis)
+    #if(dateTimeList[i].split(":")[1]!=''):
+    #    print(dateTimeList[0])
+    #    print("")
+    #    print(time)
+    #    print("")
+    #    synopsis = tables[i].df.loc[10,0]
+    #    print(synopsis.split(": ")[1])
+    #    print("")
+    
     
